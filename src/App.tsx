@@ -1,33 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import PriceList, {PriceItem }from './components/PriceList'
+const item:PriceItem[] = [
+  {
+    id: 1,
+    title: "test",
+    price: 200,
+    date: "2023-04-01",
+    category: {
+      id: 1,
+      name: "test",
+      type: "out",
+      iconName: "bi-airplane-engines-fill"
+    }
+  },
+  {
+    id: 2   ,
+    title: "test",
+    price: 200,
+    date: "2023-04-01",
+    category: {
+      id: 1,
+      name: "test",
+      type: "out",
+      iconName: "bi-airplane-engines-fill"
+    }
+  }
+]
+
+
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const onDeleteItem = (item:PriceItem) => {
+      console.log(item)
+  }
+
+  const onModifyItem = (item:PriceItem) => {
+    console.log(item)
+}
+
+
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <PriceList items={item} onDeleteItem={onDeleteItem} onModifyItem={onModifyItem}></PriceList>
     </>
   )
 }
