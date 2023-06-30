@@ -1,5 +1,6 @@
 
 import PriceList, {PriceItem }from './components/PriceList'
+import ViewTab,{AaticeTab} from './components/ViewTab'
 const item:PriceItem[] = [
   {
     id: 1,
@@ -39,13 +40,14 @@ function App() {
 
   const onModifyItem = (item:PriceItem) => {
     console.log(item)
-}
+  }
 
 
 
   return (
     <>
       <PriceList items={item} onDeleteItem={onDeleteItem} onModifyItem={onModifyItem}></PriceList>
+      <ViewTab onTabChange={(view : AaticeTab) => {console.log(view)}}></ViewTab>
     </>
   )
 }
